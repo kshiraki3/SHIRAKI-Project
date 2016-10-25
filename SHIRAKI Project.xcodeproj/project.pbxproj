@@ -7,7 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9F7DFA0A1DBF41C50076278E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F7DFA091DBF41C50076278E /* main.cpp */; };
+		9F7DFA151DBF42360076278E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F7DFA141DBF42360076278E /* main.cpp */; };
+		9F7DFA1E1DBF423B0076278E /* Exception.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F7DFA161DBF423B0076278E /* Exception.cpp */; };
+		9F7DFA1F1DBF423B0076278E /* FileReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F7DFA181DBF423B0076278E /* FileReader.cpp */; };
+		9F7DFA201DBF423B0076278E /* FileWriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F7DFA1A1DBF423B0076278E /* FileWriter.cpp */; };
+		9F7DFA211DBF423B0076278E /* RandomGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F7DFA1C1DBF423B0076278E /* RandomGenerator.cpp */; };
+		9F7DFA2E1DBF42410076278E /* Database.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F7DFA221DBF42410076278E /* Database.cpp */; };
+		9F7DFA2F1DBF42410076278E /* Date.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F7DFA241DBF42410076278E /* Date.cpp */; };
+		9F7DFA301DBF42410076278E /* DVD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F7DFA261DBF42410076278E /* DVD.cpp */; };
+		9F7DFA311DBF42410076278E /* Member.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F7DFA281DBF42410076278E /* Member.cpp */; };
+		9F7DFA321DBF42410076278E /* RentalData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F7DFA2A1DBF42410076278E /* RentalData.cpp */; };
+		9F7DFA331DBF42410076278E /* Store.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F7DFA2C1DBF42410076278E /* Store.cpp */; };
+		9F7DFA3E1DBF42470076278E /* IDInputer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F7DFA341DBF42470076278E /* IDInputer.cpp */; };
+		9F7DFA3F1DBF42470076278E /* Menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F7DFA361DBF42470076278E /* Menu.cpp */; };
+		9F7DFA401DBF42470076278E /* Paginator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F7DFA381DBF42470076278E /* Paginator.cpp */; };
+		9F7DFA411DBF42470076278E /* Selector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F7DFA3A1DBF42470076278E /* Selector.cpp */; };
+		9F7DFA421DBF42470076278E /* YesNo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F7DFA3C1DBF42470076278E /* YesNo.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +39,37 @@
 
 /* Begin PBXFileReference section */
 		9F7DFA061DBF41C50076278E /* SHIRAKI Project */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "SHIRAKI Project"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9F7DFA091DBF41C50076278E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		9F7DFA141DBF42360076278E /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		9F7DFA161DBF423B0076278E /* Exception.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Exception.cpp; sourceTree = "<group>"; };
+		9F7DFA171DBF423B0076278E /* Exception.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Exception.hpp; sourceTree = "<group>"; };
+		9F7DFA181DBF423B0076278E /* FileReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileReader.cpp; sourceTree = "<group>"; };
+		9F7DFA191DBF423B0076278E /* FileReader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FileReader.hpp; sourceTree = "<group>"; };
+		9F7DFA1A1DBF423B0076278E /* FileWriter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileWriter.cpp; sourceTree = "<group>"; };
+		9F7DFA1B1DBF423B0076278E /* FileWriter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FileWriter.hpp; sourceTree = "<group>"; };
+		9F7DFA1C1DBF423B0076278E /* RandomGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RandomGenerator.cpp; sourceTree = "<group>"; };
+		9F7DFA1D1DBF423B0076278E /* RandomGenerator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RandomGenerator.hpp; sourceTree = "<group>"; };
+		9F7DFA221DBF42410076278E /* Database.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Database.cpp; sourceTree = "<group>"; };
+		9F7DFA231DBF42410076278E /* Database.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Database.hpp; sourceTree = "<group>"; };
+		9F7DFA241DBF42410076278E /* Date.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Date.cpp; sourceTree = "<group>"; };
+		9F7DFA251DBF42410076278E /* Date.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Date.hpp; sourceTree = "<group>"; };
+		9F7DFA261DBF42410076278E /* DVD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DVD.cpp; sourceTree = "<group>"; };
+		9F7DFA271DBF42410076278E /* DVD.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DVD.hpp; sourceTree = "<group>"; };
+		9F7DFA281DBF42410076278E /* Member.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Member.cpp; sourceTree = "<group>"; };
+		9F7DFA291DBF42410076278E /* Member.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Member.hpp; sourceTree = "<group>"; };
+		9F7DFA2A1DBF42410076278E /* RentalData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RentalData.cpp; sourceTree = "<group>"; };
+		9F7DFA2B1DBF42410076278E /* RentalData.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RentalData.hpp; sourceTree = "<group>"; };
+		9F7DFA2C1DBF42410076278E /* Store.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Store.cpp; sourceTree = "<group>"; };
+		9F7DFA2D1DBF42410076278E /* Store.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Store.hpp; sourceTree = "<group>"; };
+		9F7DFA341DBF42470076278E /* IDInputer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IDInputer.cpp; sourceTree = "<group>"; };
+		9F7DFA351DBF42470076278E /* IDInputer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IDInputer.hpp; sourceTree = "<group>"; };
+		9F7DFA361DBF42470076278E /* Menu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Menu.cpp; sourceTree = "<group>"; };
+		9F7DFA371DBF42470076278E /* Menu.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Menu.hpp; sourceTree = "<group>"; };
+		9F7DFA381DBF42470076278E /* Paginator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Paginator.cpp; sourceTree = "<group>"; };
+		9F7DFA391DBF42470076278E /* Paginator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Paginator.hpp; sourceTree = "<group>"; };
+		9F7DFA3A1DBF42470076278E /* Selector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Selector.cpp; sourceTree = "<group>"; };
+		9F7DFA3B1DBF42470076278E /* Selector.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Selector.hpp; sourceTree = "<group>"; };
+		9F7DFA3C1DBF42470076278E /* YesNo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = YesNo.cpp; sourceTree = "<group>"; };
+		9F7DFA3D1DBF42470076278E /* YesNo.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = YesNo.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +86,7 @@
 		9F7DF9FD1DBF41C40076278E = {
 			isa = PBXGroup;
 			children = (
-				9F7DFA081DBF41C50076278E /* SHIRAKI Project */,
+				9F7DFA081DBF41C50076278E /* src */,
 				9F7DFA071DBF41C50076278E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,12 +99,74 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9F7DFA081DBF41C50076278E /* SHIRAKI Project */ = {
+		9F7DFA081DBF41C50076278E /* src */ = {
 			isa = PBXGroup;
 			children = (
-				9F7DFA091DBF41C50076278E /* main.cpp */,
+				9F7DFA141DBF42360076278E /* main.cpp */,
+				9F7DFA111DBF41E50076278E /* FileIO */,
+				9F7DFA101DBF41E00076278E /* Record */,
+				9F7DFA121DBF41EC0076278E /* Interface */,
+				9F7DFA131DBF41F80076278E /* Sequences */,
 			);
-			path = "SHIRAKI Project";
+			path = src;
+			sourceTree = "<group>";
+		};
+		9F7DFA101DBF41E00076278E /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				9F7DFA231DBF42410076278E /* Database.hpp */,
+				9F7DFA221DBF42410076278E /* Database.cpp */,
+				9F7DFA251DBF42410076278E /* Date.hpp */,
+				9F7DFA241DBF42410076278E /* Date.cpp */,
+				9F7DFA271DBF42410076278E /* DVD.hpp */,
+				9F7DFA261DBF42410076278E /* DVD.cpp */,
+				9F7DFA291DBF42410076278E /* Member.hpp */,
+				9F7DFA281DBF42410076278E /* Member.cpp */,
+				9F7DFA2B1DBF42410076278E /* RentalData.hpp */,
+				9F7DFA2A1DBF42410076278E /* RentalData.cpp */,
+				9F7DFA2D1DBF42410076278E /* Store.hpp */,
+				9F7DFA2C1DBF42410076278E /* Store.cpp */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		9F7DFA111DBF41E50076278E /* FileIO */ = {
+			isa = PBXGroup;
+			children = (
+				9F7DFA171DBF423B0076278E /* Exception.hpp */,
+				9F7DFA161DBF423B0076278E /* Exception.cpp */,
+				9F7DFA191DBF423B0076278E /* FileReader.hpp */,
+				9F7DFA181DBF423B0076278E /* FileReader.cpp */,
+				9F7DFA1B1DBF423B0076278E /* FileWriter.hpp */,
+				9F7DFA1A1DBF423B0076278E /* FileWriter.cpp */,
+				9F7DFA1D1DBF423B0076278E /* RandomGenerator.hpp */,
+				9F7DFA1C1DBF423B0076278E /* RandomGenerator.cpp */,
+			);
+			path = FileIO;
+			sourceTree = "<group>";
+		};
+		9F7DFA121DBF41EC0076278E /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				9F7DFA351DBF42470076278E /* IDInputer.hpp */,
+				9F7DFA341DBF42470076278E /* IDInputer.cpp */,
+				9F7DFA371DBF42470076278E /* Menu.hpp */,
+				9F7DFA361DBF42470076278E /* Menu.cpp */,
+				9F7DFA391DBF42470076278E /* Paginator.hpp */,
+				9F7DFA381DBF42470076278E /* Paginator.cpp */,
+				9F7DFA3B1DBF42470076278E /* Selector.hpp */,
+				9F7DFA3A1DBF42470076278E /* Selector.cpp */,
+				9F7DFA3D1DBF42470076278E /* YesNo.hpp */,
+				9F7DFA3C1DBF42470076278E /* YesNo.cpp */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		9F7DFA131DBF41F80076278E /* Sequences */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sequences;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,7 +226,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F7DFA0A1DBF41C50076278E /* main.cpp in Sources */,
+				9F7DFA411DBF42470076278E /* Selector.cpp in Sources */,
+				9F7DFA201DBF423B0076278E /* FileWriter.cpp in Sources */,
+				9F7DFA3F1DBF42470076278E /* Menu.cpp in Sources */,
+				9F7DFA151DBF42360076278E /* main.cpp in Sources */,
+				9F7DFA1F1DBF423B0076278E /* FileReader.cpp in Sources */,
+				9F7DFA321DBF42410076278E /* RentalData.cpp in Sources */,
+				9F7DFA311DBF42410076278E /* Member.cpp in Sources */,
+				9F7DFA1E1DBF423B0076278E /* Exception.cpp in Sources */,
+				9F7DFA421DBF42470076278E /* YesNo.cpp in Sources */,
+				9F7DFA3E1DBF42470076278E /* IDInputer.cpp in Sources */,
+				9F7DFA2F1DBF42410076278E /* Date.cpp in Sources */,
+				9F7DFA2E1DBF42410076278E /* Database.cpp in Sources */,
+				9F7DFA331DBF42410076278E /* Store.cpp in Sources */,
+				9F7DFA301DBF42410076278E /* DVD.cpp in Sources */,
+				9F7DFA211DBF423B0076278E /* RandomGenerator.cpp in Sources */,
+				9F7DFA401DBF42470076278E /* Paginator.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +339,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/src";
 			};
 			name = Debug;
 		};
@@ -224,6 +347,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/src";
 			};
 			name = Release;
 		};
@@ -246,6 +370,7 @@
 				9F7DFA0F1DBF41C50076278E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
