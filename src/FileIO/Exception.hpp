@@ -18,4 +18,4 @@ public:
 private:
 };
 
-#endif /* Exception_hpp */
+#endif

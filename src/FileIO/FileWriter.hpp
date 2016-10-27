@@ -28,4 +28,4 @@ private:
 	FILE* mStream;
 };
 
-#endif /* FileWriter_hpp */
+#endif

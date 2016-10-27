@@ -28,6 +28,14 @@ struct Date {
 	int Days() const;	// 1000年1月1日からの経過日数
 	friend int operator -(const Date& lhs, const Date& rhs);	// 日付の差を日数で返す
 	
+	// 比較
+	bool operator ==(const Date& rhs) const;
+	bool operator !=(const Date& rhs) const;
+	bool operator >(const Date& rhs) const;
+	bool operator <(const Date& rhs) const;
+	bool operator >=(const Date& rhs) const;
+	bool operator <=(const Date& rhs) const;
+	
 	void InputFromCin();	// キーボードから入力
 	
 	// レコード

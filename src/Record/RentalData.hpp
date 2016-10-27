@@ -30,4 +30,4 @@ struct RentalData {
 	bool mReturned;	// 返却済みフラグ
 };
 
-#endif /* RentalData_hpp */
+#endif

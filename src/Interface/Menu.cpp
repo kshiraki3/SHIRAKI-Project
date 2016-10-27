@@ -41,6 +41,7 @@ void Menu::Run() {
 		// カスタムテキストを表示
 		if(mShowText) {
 			mShowText();
+			cout << "\n";
 		}
 		
 		// 項目表示

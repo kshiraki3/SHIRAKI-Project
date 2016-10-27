@@ -196,11 +196,19 @@ void Database::AddStore(const Store& store) {
 }
 
 void Database::RemoveStore(int id) {
+	if(mCurrentStore->mID == id) {
+		mCurrentStore = nullptr;
+	}
 	mStores.erase(id);
 }
+
 Store* Database::FindStore(int id) {
 	auto i = mStores.find(id);
 	return (i == mStores.end()) ? nullptr : const_cast<Store*>(&(*i));
+}
+
+void Database::SetCurrentStore(int id) {
+	mCurrentStore = this->FindStore(id);
 }
 
 
@@ -209,6 +217,43 @@ Store* Database::FindStore(int id) {
 
 const std::multiset<RentalData>& Database::RentalDatas() const {
 	return mRentalData;
+}
+
+
+/* ********************************************************************************************************* */
+// 貸出・返却処理
+
+void Database::Lend(const string& memberID, const string& goodsID) {
+	// 貸出処理
+	DVD* dvd = this->FindDVD(goodsID);
+	if(dvd == nullptr) {
+		
+	}
+	
+	dvd->mLendableFlag = false;
+	++dvd->mLendTime;
+	
+	// 貸出データを追加
+	RentalData rd;
+	rd.mMemberID = memberID;
+	rd.mGoodsID = goodsID;
+	rd.mDate = Date::Today();
+	rd.mReturned = false;
+	mRentalData.insert(rd);
+}
+
+void Database::Return(RentalData* rd) {
+	// 返却処理
+	DVD* dvd = this->FindDVD(rd->mGoodsID);
+	
+	if(dvd == nullptr) {
+		
+	}
+	
+	dvd->mLendableFlag = true;
+	
+	// 貸出データを返却済みに変更
+	rd->mReturned = true;
 }
 
 

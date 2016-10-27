@@ -49,9 +49,14 @@ public:
 	void AddStore(const Store& store);
 	void RemoveStore(int id);
 	Store* FindStore(int id);
+	void SetCurrentStore(int id);
 	
 	// 貸出情報
 	const std::multiset<RentalData>& RentalDatas() const;
+	
+	// 貸出・返却処理
+	void Lend(const std::string& memberID, const std::string& goodsID);
+	void Return(RentalData* rd);
 	
 	// ID自動生成
 	std::string GenerateMemberID();
@@ -62,6 +67,8 @@ private:
 	std::set<DVD> mDVDs;	// 商品情報
 	std::set<Store> mStores;	// 店舗情報
 	std::multiset<RentalData> mRentalData;	// 貸出情報
+	
+	Store* mCurrentStore;
 };
 
 extern Database gDB;

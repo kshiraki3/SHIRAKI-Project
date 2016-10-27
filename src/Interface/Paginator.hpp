@@ -14,6 +14,8 @@
 #include <vector>
 #include <string>
 
+
+// リスト表示のページ分けを行う
 class Paginator {
 public:
 	Paginator();
@@ -22,6 +24,7 @@ public:
 	~Paginator();
 	
 	void AddItem(const std::string& item);
+	void SetHeaderText(const std::string& text);
 	void SetItemsPerPage(int n);
 	void SetSelectionHandler(const std::function<void(int)>& handler);
 	void SetReturnMessage(const std::string& msg);
@@ -34,6 +37,7 @@ private:
 	
 	int mPage;
 	int mItemsPerPage;
+	std::string mHeaderText;
 	std::string mReturnMessage;
 };
 
@@ -42,4 +46,4 @@ template<typename InputIterator> Paginator::Paginator(InputIterator begin, Input
 	
 }
 
-#endif /* Paginator_hpp */
+#endif

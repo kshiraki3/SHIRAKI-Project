@@ -25,6 +25,9 @@ struct DVD {
 	bool operator <(const DVD& rhs) const;
 	bool operator ==(const DVD& rhs) const;
 	
+	// 状態
+	bool IsNew() const;
+	
 	// チェック
 	static bool CheckIDSyntax(const std::string& id, std::string* msg = nullptr);
 	

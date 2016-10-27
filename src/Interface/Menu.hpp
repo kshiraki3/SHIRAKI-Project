@@ -38,6 +38,7 @@ public:
 	// 設定
 	void SetTitle(const std::string& title);
 	void SetCustomText(const std::function<void()>& showText);
+	
 	void AddItem(const MenuItem& items);
 	void AddItem(char command, const std::string& text, const MenuAction& action);
 	

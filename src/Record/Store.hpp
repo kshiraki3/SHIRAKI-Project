@@ -28,4 +28,4 @@ struct Store {
 	std::string mName;	// 店舗名
 };
 
-#endif /* Store_hpp */
+#endif

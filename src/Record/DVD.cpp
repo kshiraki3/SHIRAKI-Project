@@ -80,6 +80,10 @@ void DVD::WriteToFile(FileWriter* fw) const {
 	fw->Write(&place, 1, 1);
 }
 
+bool DVD::IsNew() const {
+	return (Date::Today() - mReleaseDate) < 180;
+}
+
 bool DVD::CheckIDSyntax(const std::string& id, std::string* msg) {
 	// チェック
 	if(id.size() != mIDLength) {

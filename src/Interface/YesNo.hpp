@@ -26,4 +26,4 @@ private:
 	std::string mText;
 };
 
-#endif /* YesNo_hpp */
+#endif

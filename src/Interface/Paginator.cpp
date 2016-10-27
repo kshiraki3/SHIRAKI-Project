@@ -28,6 +28,10 @@ void Paginator::AddItem(const std::string& item) {
 	
 }
 
+void Paginator::SetHeaderText(const std::string& text) {
+	mHeaderText = text;
+}
+
 void Paginator::SetItemsPerPage(int n) {
 	mItemsPerPage = n;
 }
@@ -44,12 +48,18 @@ void Paginator::Run() {
 	bool quit = false;
 	
 	while(!quit) {
+		if(!mHeaderText.empty()) {
+			cout << mHeaderText << "\n";
+		}
+		
 		for(int i = mPage * mItemsPerPage; i < mItems.size() && i < (mPage + 1) * mItemsPerPage; ++i) {
 			if(mHandler) {
 				cout << static_cast<char>('1' + (i - mPage * mItemsPerPage)) << ". ";
 			}
 			cout << mItems[i] << "\n";
 		}
+		
+		cout << "\n";
 		
 		if(mItems.size() > (mPage + 1) * mItemsPerPage) {
 			cout << "n. 次のページへ\n";

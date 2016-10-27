@@ -63,7 +63,7 @@ bool Date::Check() const {
 	bool leapYear = (mYear % 4 == 0) && ((mYear % 100 != 0) || (mYear % 400 == 0));
 	int days[12] = { 31, leapYear ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 	
-	return (mYear != 0) && (1 <= mMonth && mMonth <= 12) && (1 <= mDay && mDay <= days[mMonth - 1]);
+	return (1 <= mYear && mYear <= 9999) && (1 <= mMonth && mMonth <= 12) && (1 <= mDay && mDay <= days[mMonth - 1]);
 }
 
 int Date::Days() const {
@@ -91,6 +91,38 @@ int operator -(const Date& lhs, const Date& rhs) {
 		return lhs.Days() - rhs.Days();
 	}
 }
+
+
+/* ********************************************************************************************************* */
+// 比較
+
+bool Date::operator ==(const Date& rhs) const {
+	return (mYear * 100000 + mMonth * 100 + mDay) == (rhs.mYear * 100000 + mMonth * 100 + mDay);
+}
+
+bool Date::operator !=(const Date& rhs) const {
+	return (mYear * 100000 + mMonth * 100 + mDay) != (rhs.mYear * 100000 + mMonth * 100 + mDay);
+}
+
+bool Date::operator >(const Date& rhs) const {
+	return (mYear * 100000 + mMonth * 100 + mDay) > (rhs.mYear * 100000 + mMonth * 100 + mDay);
+}
+
+bool Date::operator <(const Date& rhs) const {
+	return (mYear * 100000 + mMonth * 100 + mDay) < (rhs.mYear * 100000 + mMonth * 100 + mDay);
+}
+
+bool Date::operator >=(const Date& rhs) const {
+	return (mYear * 100000 + mMonth * 100 + mDay) >= (rhs.mYear * 100000 + mMonth * 100 + mDay);
+}
+
+bool Date::operator <=(const Date& rhs) const {
+	return (mYear * 100000 + mMonth * 100 + mDay) <= (rhs.mYear * 100000 + mMonth * 100 + mDay);
+}
+
+
+/* ********************************************************************************************************* */
+// 入出力
 
 void Date::InputFromCin() {
 	// 年の入力
