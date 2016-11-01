@@ -25,7 +25,7 @@ Paginator::~Paginator() {
 }
 
 void Paginator::AddItem(const std::string& item) {
-	
+	mItems.push_back(item);
 }
 
 void Paginator::SetHeaderText(const std::string& text) {

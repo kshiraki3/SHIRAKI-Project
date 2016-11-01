@@ -7,3 +7,12 @@
 //
 
 #include "Utility.hpp"
+
+
+SPException::SPException(const std::string& what) : std::runtime_error(what) {
+	
+}
+
+SPException::~SPException() {
+	
+}

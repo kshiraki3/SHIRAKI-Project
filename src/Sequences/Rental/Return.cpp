@@ -9,6 +9,7 @@
 #include "Sequences/Rental/Return.hpp"
 #include "Sequences/Goods/Input.hpp"
 #include "Record/Database.hpp"
+#include "Interface/YesNo.hpp"
 #include <algorithm>
 #include <cassert>
 #include <iostream>
@@ -17,6 +18,7 @@ using namespace std;
 
 
 void ReturnGoodsInfo(RentalData* rd);
+void ReturnNotify(RentalData* rd);
 
 // 商品ID入力画面 (返却)
 void InputReturnGoodsID() {
@@ -49,5 +51,27 @@ void InputReturnGoodsID() {
 
 // 返却商品情報確認画面
 void ReturnGoodsInfo(RentalData* rd) {
+	DVD* dvd = gDB.FindDVD(rd->mGoodsID);
+	assert(dvd != nullptr);
 	
+	cout << "***** 返却商品情報確認 *****\n";
+	cout << dvd->mID << ": ";
+	cout << dvd->mTitle << " : ";
+	cout << (rd->IsDelayed() ? "延滞あり" : "延滞なし") << "\n";
+	
+	YesNo question("この商品を返却しますか?");
+	
+	if(question.Run()) {
+		ReturnNotify(rd);
+	}
+}
+
+
+// 返却通知画面
+void ReturnNotify(RentalData* rd) {
+	// 返却処理
+	gDB.Return(rd);
+	
+	// 通知
+	cout << "商品が返却されました。";
 }

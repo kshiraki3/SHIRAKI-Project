@@ -13,5 +13,11 @@
 
 
 std::string InputGoodsID(const std::string& msg, DVD* dvd, bool allowCancel = false);
+std::string InputGoodsTitle(const std::string& msg, DVD* dvd);
+std::string InputGoodsGenre(const std::string& msg, DVD* dvd);
+Date InputGoodsReleaseDate(const std::string& msg, DVD* dvd);
+unsigned InputGoodsLendTime(const std::string& msg, DVD* dvd);
+bool InputGoodsLendableFlag(const std::string& msg, DVD* dvd);
+int InputGoodsPlace(const std::string& msg, DVD* dvd);
 
 #endif

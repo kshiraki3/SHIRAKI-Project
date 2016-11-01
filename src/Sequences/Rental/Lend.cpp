@@ -46,7 +46,8 @@ void InputLendGoodsID() {
 // 貸出商品情報確認画面
 void LendGoodsInfo(DVD* dvd) {
 	cout << "***** 貸出商品情報確認 *****\n";
-	cout << dvd->mID << dvd->IsNew() << "\n";
+	cout << dvd->mID << ": ";
+	cout << (dvd->IsNew() ? "NEW" : "OLD") << "\n";
 	
 	YesNo question("この商品を貸し出しますか?");
 	

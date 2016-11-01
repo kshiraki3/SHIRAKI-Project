@@ -17,6 +17,7 @@
 using namespace std;
 
 
+void StoreSetNotify(Store* store);
 void StoreNameModify(Store* store);
 void StoreDeleteConfirmation(Store* store, Menu& menu);
 void StoreDeleteNotify(Store* store);
@@ -31,11 +32,19 @@ void StoreInfo(Store* store) {
 		cout << "店舗ID : " << store->mID << "\n";
 		cout << "店舗名 : " << store->mName << "\n";
 	});
-	menu.AddItem('1', "店舗名変更", bind(&StoreNameModify, store));
-	menu.AddItem('2', "削除", bind(&StoreDeleteConfirmation, store, menu));
+	menu.AddItem('1', "現在の店舗として設定", bind(&StoreSetNotify, store));
+	menu.AddItem('2', "店舗名変更", bind(&StoreNameModify, store));
+	menu.AddItem('3', "削除", bind(&StoreDeleteConfirmation, store, menu));
 	menu.AddItem('0', "店舗情報管理メニューに戻る", bind(&Menu::Quit, &menu));
 	
 	menu.Run();
+}
+
+
+// 店舗設定通知画面
+void StoreSetNotify(Store* store) {
+	gDB.SetCurrentStore(store->mID);
+	cout << store->mName << "が現在の店舗として設定されました。";
 }
 
 

@@ -9,6 +9,6 @@
 #include "FileIO/Exception.hpp"
 
 
-FileOpenException::FileOpenException() : std::runtime_error("ファイルのオープンに失敗しました。") {
+FileOpenException::FileOpenException() : SPException("ファイルのオープンに失敗しました。") {
 	
 }

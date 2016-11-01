@@ -7,6 +7,7 @@
 //
 
 #include "Record/Database.hpp"
+#include "Utility.hpp"
 #include "FileIO/Exception.hpp"
 #include "FileIO/FileReader.hpp"
 #include "FileIO/FileWriter.hpp"
@@ -207,6 +208,10 @@ Store* Database::FindStore(int id) {
 	return (i == mStores.end()) ? nullptr : const_cast<Store*>(&(*i));
 }
 
+int Database::CurrentStore() {
+	return mCurrentStore->mID;
+}
+
 void Database::SetCurrentStore(int id) {
 	mCurrentStore = this->FindStore(id);
 }
@@ -261,23 +266,37 @@ void Database::Return(RentalData* rd) {
 // ID自動生成
 
 std::string Database::GenerateMemberID() {
-	string result;
-	result.resize(Member::mIDLength);
-	
 	Date today = Date::Today();
+	string dayText = Sprintf("%04d%02d%02d", today.mYear, today.mMonth, today.mDay);
 	
-	sprintf(&result[0], "%02d%04d%02d%02d%02d", 99, today.mYear, today.mMonth, today.mDay, 1);
+	// 連番を取得
+	int num = 0;
+	for(const Member& member : mMembers) {
+		if(member.mID.find(dayText) == 3) {
+			int n;
+			sscanf(member.mID.c_str() + 10, "%02d", &n);
+			
+			if(num > n) { num = n; }
+		}
+	}
 	
-	return result;
+	return Sprintf("%02d%s%02d", mCurrentStore->mID, dayText.c_str(), num + 1);
 }
 
 std::string Database::GenerateGoodsID() {
-	string result;
-	result.resize(Member::mIDLength);
-	
 	Date today = Date::Today();
+	string dayText = Sprintf("%04d%02d%02d", today.mYear, today.mMonth, today.mDay);
 	
-	sprintf(&result[0], "%02d%04d%02d%02d%03d", 99, today.mYear, today.mMonth, today.mDay, 1);
+	// 連番を取得
+	int num = 0;
+	for(const DVD& dvd : mDVDs) {
+		if(dvd.mID.find(dayText) == 3) {
+			int n;
+			sscanf(dvd.mID.c_str() + 10, "%03d", &n);
+			
+			if(num > n) { num = n; }
+		}
+	}
 	
-	return result;
+	return Sprintf("%02d%s%03d", mCurrentStore->mID, dayText.c_str(), num + 1);
 }

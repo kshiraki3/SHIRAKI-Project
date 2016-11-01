@@ -10,6 +10,7 @@
 #define Included_Utility_hpp
 
 #include <cstdio>
+#include <stdexcept>
 #include <string>
 
 template<typename... Args> std::string Sprintf(const std::string& fmt, Args... args) {
@@ -18,4 +19,13 @@ template<typename... Args> std::string Sprintf(const std::string& fmt, Args... a
 	return std::string(buf);
 }
 
-#endif /* Utility_hpp */
+
+class SPException : public std::runtime_error {
+public:
+	explicit SPException(const std::string& what);
+	~SPException();
+	
+private:
+};
+
+#endif

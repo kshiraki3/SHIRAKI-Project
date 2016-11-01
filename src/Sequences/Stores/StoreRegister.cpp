@@ -53,5 +53,5 @@ void NewStoreInfo(Store* newStore) {
 // 店舗登録通知画面
 void StoreRegisterNotify(Store* newStore) {
 	gDB.AddStore(*newStore);
-	cout << "店舗情報が追加されました。\n";
+	cout << "店舗情報が登録されました。\n";
 }

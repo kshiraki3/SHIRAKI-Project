@@ -9,9 +9,10 @@
 #ifndef Included_FileIO_Exception_hpp
 #define Included_FileIO_Exception_hpp
 
-#include <stdexcept>
+#include "Utility.hpp"
 
-class FileOpenException : std::runtime_error {
+
+class FileOpenException : SPException {
 public:
 	FileOpenException();
 	

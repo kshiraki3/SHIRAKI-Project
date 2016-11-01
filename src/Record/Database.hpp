@@ -49,6 +49,7 @@ public:
 	void AddStore(const Store& store);
 	void RemoveStore(int id);
 	Store* FindStore(int id);
+	int CurrentStore();
 	void SetCurrentStore(int id);
 	
 	// 貸出情報
@@ -73,4 +74,4 @@ private:
 
 extern Database gDB;
 
-#endif /* Database_hpp */
+#endif

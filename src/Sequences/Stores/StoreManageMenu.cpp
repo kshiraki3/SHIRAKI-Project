@@ -15,6 +15,7 @@
 using namespace std;
 
 
+// 店舗情報管理メニュー
 void StoreManageMenu() {
 	Menu menu;
 	

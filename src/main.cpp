@@ -7,11 +7,19 @@
 //
 
 #include "Sequences/StuffMainMenu.hpp"
+#include "Utility.hpp"
 #include <iostream>
+
 using namespace std;
 
 
 int main() {
-	StuffMainMenu();
+	try {
+		StuffMainMenu();
+	} catch(const SPException& exception) {
+		cerr << "!! エラー発生 !!\n";
+		cerr << exception.what() << "\n";
+	}
+	
 	return 0;
 }

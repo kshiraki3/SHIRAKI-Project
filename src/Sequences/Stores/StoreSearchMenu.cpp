@@ -36,7 +36,7 @@ void StoreSearchMenu() {
 }
 
 
-// 店舗ID入力画面
+// 店舗ID入力画面 (検索)
 void StoreSearchByID() {
 	int input = InputStoreID("店舗ID", nullptr);
 	Store* store = gDB.FindStore(input);
@@ -49,7 +49,7 @@ void StoreSearchByID() {
 }
 
 
-// 店舗名入力画面
+// 店舗名入力画面 (検索)
 void StoreSearchByName() {
 	string input = InputStoreName("店舗名", nullptr);
 	

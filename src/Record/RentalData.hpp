@@ -24,6 +24,10 @@ struct RentalData {
 	bool operator ==(const RentalData& rhs) const;
 	bool operator <(const RentalData& rhs) const;
 	
+	// 状態
+	bool IsDelayed() const;
+	
+	// レコード
 	std::string mMemberID;	// 会員ID
 	std::string mGoodsID;	// 商品ID
 	Date mDate;	// 貸出日

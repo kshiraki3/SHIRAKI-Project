@@ -57,3 +57,7 @@ bool RentalData::operator ==(const RentalData& rhs) const {
 bool RentalData::operator <(const RentalData& rhs) const {
 	return mMemberID < rhs.mMemberID;
 }
+
+bool RentalData::IsDelayed() const {
+	return (Date::Today() - mDate) > 8;
+}

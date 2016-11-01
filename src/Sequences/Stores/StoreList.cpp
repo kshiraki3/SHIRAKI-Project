@@ -20,9 +20,9 @@
 using namespace std;
 
 
-void SortByID(vector<const Store*>& stores);
-void SortByName(vector<const Store*>& stores);
-void ShowList(const vector<const Store*>& stores);
+void StoreSortByID(vector<const Store*>& stores);
+void StoreSortByName(vector<const Store*>& stores);
+void ShowStoreList(const vector<const Store*>& stores);
 
 // 店舗一覧表示画面
 void StoreList() {
@@ -40,8 +40,8 @@ void StoreList() {
 	menu.SetCustomText([](){
 		cout << "どの項目で並び替えますか?\n";
 	});
-	menu.AddItem('1', "店舗ID", bind(&SortByID, stores));
-	menu.AddItem('2', "店舗名", bind(&SortByName, stores));
+	menu.AddItem('1', "店舗ID", bind(&StoreSortByID, stores));
+	menu.AddItem('2', "店舗名", bind(&StoreSortByName, stores));
 	menu.AddItem('0', "店舗情報管理メニューに戻る", bind(&Menu::Quit, &menu));
 	
 	menu.Run();
@@ -49,7 +49,7 @@ void StoreList() {
 
 
 // IDで並び替え
-void SortByID(vector<const Store*>& stores) {
+void StoreSortByID(vector<const Store*>& stores) {
 	Selector sel;
 	
 	sel.AddItem('1', "昇順");
@@ -64,12 +64,12 @@ void SortByID(vector<const Store*>& stores) {
 		sort(begin(stores), end(stores), [](const Store* x, const Store* y){ return x->mID > y->mID; });
 	}
 	
-	ShowList(stores);
+	ShowStoreList(stores);
 }
 
 
 // 店舗名で並び替え
-void SortByName(vector<const Store*>& stores) {
+void StoreSortByName(vector<const Store*>& stores) {
 	Selector sel;
 	
 	sel.AddItem('1', "昇順");
@@ -84,19 +84,19 @@ void SortByName(vector<const Store*>& stores) {
 		sort(begin(stores), end(stores), [](const Store* x, const Store* y){ return x->mName > y->mName; });
 	}
 	
-	ShowList(stores);
+	ShowStoreList(stores);
 }
 
 
 // リスト表示
-void ShowList(const vector<const Store*>& stores) {
+void ShowStoreList(const vector<const Store*>& stores) {
 	vector<string> items;
 	
-	for(auto store : stores) {
-		items.push_back(Sprintf("%02d | %s", store->mID, store->mName.c_str()));
-	}
+	Paginator p;
 	
-	Paginator p(begin(items), end(items));
+	for(auto store : stores) {
+		p.AddItem(Sprintf("%02d | %s", store->mID, store->mName.c_str()));
+	}
 	
 	p.SetHeaderText("ID | 店舗名");
 	p.SetReturnMessage("戻る");

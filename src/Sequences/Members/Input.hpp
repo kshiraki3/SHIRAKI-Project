@@ -12,5 +12,9 @@
 #include "Record/Member.hpp"
 
 std::string InputMemberID(const std::string& msg, Member* member, bool allowCancel = false);
+std::string InputMemberName(const std::string& msg, Member* member);
+std::string InputMemberAddress(const std::string& msg, Member* member);
+std::string InputMemberPhoneNumber(const std::string& msg, Member* member);
+Date InputMemberBirthday(const std::string& msg, Member* member);
 
 #endif
