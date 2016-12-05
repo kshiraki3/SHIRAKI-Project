@@ -9,7 +9,7 @@
 #include "Record/DVD.hpp"
 
 
-DVD::DVD() {
+DVD::DVD() : mLendableFlag(true) {
 	
 }
 

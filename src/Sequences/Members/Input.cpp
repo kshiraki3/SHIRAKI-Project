@@ -52,6 +52,20 @@ string InputMemberName(const string& msg, Member* member) {
 	return input;
 }
 
+std::string InputMemberRuby(const std::string& msg, Member* member) {
+	string input;
+	
+	cout << msg << "> ";
+	cin >> input;
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
+	
+	if(member != nullptr) {
+		member->mRuby = input;
+	}
+	
+	return input;
+}
+
 string InputMemberAddress(const string& msg, Member* member) {
 	string input;
 	

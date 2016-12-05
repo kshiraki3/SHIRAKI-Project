@@ -111,5 +111,13 @@ bool Member::CheckPhoneNumber(const std::string& num) {
 		}
 	}
 	
-	return true;
+	if(num[2] == '-' && num[7] == '-') {
+		return true;
+	} else if(num[3] == '-' && num[7] == '-') {
+		return true;
+	} else if(num[4] == '-' && num[7] == '-') {
+		return true;
+	} else {
+		return false;
+	}
 }

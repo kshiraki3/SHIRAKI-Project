@@ -24,9 +24,21 @@ void MemberRegister() {
 	
 	cout << "***** 新規会員情報入力 *****\n";
 	
-	InputMemberID("会員ID (0: 自動生成)", &newMember, true);
-	if(newMember.mID.empty()) {
-		newMember.mID = gDB.GenerateMemberID();
+	while(true) {
+		InputMemberID("会員ID (0: 自動生成)", &newMember, true);
+		if(newMember.mID.empty()) {
+			try {
+				newMember.mID = gDB.GenerateMemberID();
+				break;
+			} catch(const IDGenerationException& exception) {
+				cout << exception.what() << "\n";
+			}
+		} else if(gDB.FindMember(newMember.mID) != nullptr) {
+			// 重複チェック
+			cout << "会員IDが重複しています。別のIDを入力してください。\n";
+		} else {
+			break;
+		}
 	}
 	
 	InputMemberName("氏名", &newMember);
@@ -54,7 +66,27 @@ void NewMemberInfo(Member* newMember) {
 		MemberRegisterNotify(newMember);
 		menu.Quit();
 	});
-	menu.AddItem('2', "会員IDを変更", [=](){ InputMemberID("", newMember); });
+	menu.AddItem('2', "会員IDを変更 (0: 自動生成)", [=](){
+		string id;
+		while(true) {
+			id = InputMemberID("", nullptr, true);
+			if(id.empty()) {
+				try {
+					id = gDB.GenerateMemberID();
+					break;
+				} catch(const IDGenerationException& exception) {
+					cout << exception.what() << "\n";
+				}
+			} else if(gDB.FindMember(id) != nullptr) {
+				// 重複チェック
+				cout << "会員IDが重複しています。別のIDを入力してください。\n";
+			} else {
+				break;
+			}
+		}
+		
+		newMember->mID = id;
+	});
 	menu.AddItem('3', "氏名を変更", [=](){ InputMemberName("", newMember); });
 	menu.AddItem('4', "住所を変更", [=](){ InputMemberAddress("", newMember); });
 	menu.AddItem('5', "電話番号を変更", [=](){ InputMemberPhoneNumber("", newMember); });

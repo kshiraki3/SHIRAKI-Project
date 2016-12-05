@@ -28,7 +28,7 @@ YesNo::~YesNo() {
 bool YesNo::Run() {
 	do {
 		// 表示
-		cout << mText << " (y/n) >";
+		cout << mText << " (y/n) > ";
 		
 		// 入力
 		char input;

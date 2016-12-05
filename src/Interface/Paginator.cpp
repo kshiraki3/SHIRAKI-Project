@@ -28,6 +28,10 @@ void Paginator::AddItem(const std::string& item) {
 	mItems.push_back(item);
 }
 
+unsigned Paginator::ItemCount() const {
+	return static_cast<unsigned>(mItems.size());
+}
+
 void Paginator::SetHeaderText(const std::string& text) {
 	mHeaderText = text;
 }
@@ -45,9 +49,9 @@ void Paginator::SetReturnMessage(const std::string& msg) {
 }
 
 void Paginator::Run() {
-	bool quit = false;
+	mQuit = false;
 	
-	while(!quit) {
+	while(!mQuit) {
 		if(!mHeaderText.empty()) {
 			cout << mHeaderText << "\n";
 		}
@@ -79,8 +83,10 @@ void Paginator::Run() {
 		// 処理
 		switch(input) {
 			case '1'...'9':
-				if(mHandler) {
+				if((input - '1' + mPage * mItemsPerPage < mItems.size()) && mHandler) {
 					mHandler(input - '1' + mPage * mItemsPerPage);
+				} else {
+					cout << "入力が間違っています。\n";
 				}
 				break;
 				
@@ -99,8 +105,12 @@ void Paginator::Run() {
 				break;
 				
 			case '0':
-				quit = true;
+				this->Quit();
 				break;
 		}
 	}
+}
+
+void Paginator::Quit() {
+	mQuit = true;
 }

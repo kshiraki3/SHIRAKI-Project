@@ -34,7 +34,7 @@ void GoodsRegister() {
 	InputGoodsReleaseDate("発売日", &newDVD);
 	
 	newDVD.mLendTime = 0;
-	newDVD.mLendableFlag = 0;
+	newDVD.mLendableFlag = true;
 	newDVD.mPlace = gDB.CurrentStore();
 	
 	NewGoodsInfo(&newDVD);

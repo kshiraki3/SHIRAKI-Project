@@ -9,12 +9,22 @@
 #ifndef Included_Record_Database_hpp
 #define Included_Record_Database_hpp
 
+#include "Utility.hpp"
 #include "Record/Member.hpp"
 #include "Record/DVD.hpp"
 #include "Record/Store.hpp"
 #include "Record/RentalData.hpp"
 #include <functional>
 #include <set>
+
+
+class IDGenerationException : public SPException {
+public:
+	explicit IDGenerationException(const std::string& msg);
+	~IDGenerationException();
+	
+private:
+};
 
 
 class Database {

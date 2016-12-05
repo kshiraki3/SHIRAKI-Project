@@ -19,7 +19,7 @@ using namespace std;
 void ShowGoodsInfo(DVD* dvd);
 
 void GoodsModify(DVD* dvd);
-void GoodsDeleteComfirmation(DVD* dvd, Menu& menu);
+void GoodsDeleteComfirmation(DVD* dvd, Menu* menu);
 void GoodsDeleteNotify(DVD* dvd);
 
 // 商品情報確認画面
@@ -31,7 +31,7 @@ void GoodsInfo(DVD* dvd) {
 		ShowGoodsInfo(dvd);
 	});
 	menu.AddItem('1', "変更", bind(&GoodsModify, dvd));
-	menu.AddItem('2', "削除", bind(&GoodsDeleteComfirmation, dvd, menu));
+	menu.AddItem('2', "削除", bind(&GoodsDeleteComfirmation, dvd, &menu));
 	menu.AddItem('0', "商品情報確認メニューに戻る", bind(&Menu::Quit, &menu));
 	
 	menu.Run();
@@ -46,7 +46,7 @@ void ShowGoodsInfo(DVD* dvd) {
 	cout << "貸出状況: " << (dvd->mLendableFlag ? "貸出可" : "貸出中") << "\n";
 	cout << "保管場所: ";
 	
-	if(dvd->mPlace == -1) {
+	if(dvd->mPlace == Store::mNull) {
 		cout << "倉庫\n";
 	} else {
 		cout << gDB.FindStore(dvd->mPlace)->mName << "\n";
@@ -71,12 +71,12 @@ void GoodsModify(DVD* dvd) {
 
 
 // 商品情報削除確認画面
-void GoodsDeleteComfirmation(DVD* dvd, Menu& menu) {
+void GoodsDeleteComfirmation(DVD* dvd, Menu* menu) {
 	YesNo yn("商品を削除しますか?");
 	
 	if(yn.Run()) {
 		GoodsDeleteNotify(dvd);
-		menu.Quit();
+		menu->Quit();
 	}
 }
 

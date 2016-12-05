@@ -15,6 +15,8 @@
 
 
 struct Store {
+	static const int mNull = 255;
+	
 	Store();
 	Store(int id);
 	Store(FileReader* fr);

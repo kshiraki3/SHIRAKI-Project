@@ -19,7 +19,7 @@ using namespace std;
 void ShowInfo(Member* member);
 
 void MemberModify(Member* member);
-void MemberDeleteComfirmation(Member* member, Menu& meun);
+void MemberDeleteComfirmation(Member* member, Menu* menu);
 void MemberDeleteNotify(Member* member);
 
 
@@ -30,7 +30,7 @@ void MemberInfo(Member* member) {
 	menu.SetTitle("会員情報確認");
 	menu.SetCustomText(bind(&ShowInfo, member));
 	menu.AddItem('1', "変更", bind(&MemberModify, member));
-	menu.AddItem('2', "削除", bind(&MemberDeleteComfirmation, member, menu));
+	menu.AddItem('2', "削除", bind(&MemberDeleteComfirmation, member, &menu));
 	menu.AddItem('0', "会員情報管理メニューに戻る", bind(&Menu::Quit, &menu));
 	
 	menu.Run();
@@ -52,10 +52,22 @@ void MemberModify(Member* member) {
 	Menu menu;
 	
 	menu.SetCustomText([](){ cout << "どの項目を変更しますか?\n"; });
-	menu.AddItem('1', "氏名", [=](){ InputMemberName("", member); });
-	menu.AddItem('1', "住所", [=](){ InputMemberAddress("", member); });
-	menu.AddItem('1', "電話番号", [=](){ InputMemberPhoneNumber("", member); });
-	menu.AddItem('1', "生年月日", [=](){ InputMemberBirthday("", member); });
+	menu.AddItem('1', "氏名", [=]() {
+		InputMemberName("", member);
+		ShowInfo(member);
+	});
+	menu.AddItem('2', "住所", [=]() {
+		InputMemberAddress("", member);
+		ShowInfo(member);
+	});
+	menu.AddItem('3', "電話番号", [=]() {
+		InputMemberPhoneNumber("", member);
+		ShowInfo(member);
+	});
+	menu.AddItem('4', "生年月日", [=]() {
+		InputMemberBirthday("", member);
+		ShowInfo(member);
+	});
 	menu.AddItem('0', "会員情報確認に戻る", bind(&Menu::Quit, &menu));
 	
 	menu.Run();
@@ -63,11 +75,11 @@ void MemberModify(Member* member) {
 
 
 // 会員情報削除確認画面
-void MemberDeleteComfirmation(Member* member, Menu& menu) {
+void MemberDeleteComfirmation(Member* member, Menu* menu) {
 	YesNo question("会員情報を削除しますか?");
 	if(question.Run()) {
 		MemberDeleteNotify(member);
-		menu.Quit();
+		menu->Quit();
 	}
 }
 

@@ -31,6 +31,9 @@ public:
 	Menu(const std::string& title, const std::initializer_list<MenuItem>& items);
 	~Menu();
 	
+	Menu(const Menu&) = delete;
+	Menu& operator =(const Menu&) = delete;
+	
 	// 制御
 	void Run();
 	void Quit();
@@ -39,11 +42,14 @@ public:
 	void SetTitle(const std::string& title);
 	void SetCustomText(const std::function<void()>& showText);
 	
+	void SetSingle(bool flag);
+	
 	void AddItem(const MenuItem& items);
 	void AddItem(char command, const std::string& text, const MenuAction& action);
 	
 private:
 	bool mQuit;
+	bool mSingle;
 	std::string mTitle;
 	std::function<void()> mShowText;
 	std::vector<MenuItem> mItems;

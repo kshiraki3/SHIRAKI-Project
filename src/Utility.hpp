@@ -13,6 +13,7 @@
 #include <stdexcept>
 #include <string>
 
+// printf形式で文字列作成
 template<typename... Args> std::string Sprintf(const std::string& fmt, Args... args) {
 	char buf[256];
 	snprintf(buf, 256, fmt.c_str(), args...);
@@ -20,6 +21,7 @@ template<typename... Args> std::string Sprintf(const std::string& fmt, Args... a
 }
 
 
+// 例外
 class SPException : public std::runtime_error {
 public:
 	explicit SPException(const std::string& what);

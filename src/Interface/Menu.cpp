@@ -17,7 +17,7 @@ Menu::Menu() {
 	
 }
 
-Menu::Menu(const string& title, const initializer_list<MenuItem>& items) : mTitle(title), mItems(items) {
+Menu::Menu(const string& title, const initializer_list<MenuItem>& items) : mTitle(title), mItems(items), mQuit(false), mSingle(false) {
 	
 }
 
@@ -70,6 +70,8 @@ void Menu::Run() {
 		// 入力が不正だったら再入力を促す
 		if(!acted) {
 			cout << "入力が間違っています。\n";
+		} else if(mSingle) {
+			this->Quit();
 		}
 		
 		cout << "\n";
@@ -90,6 +92,10 @@ void Menu::SetTitle(const string& title) {
 
 void Menu::SetCustomText(const std::function<void()>& showText) {
 	mShowText = showText;
+}
+
+void Menu::SetSingle(bool flag) {
+	mSingle = flag;
 }
 
 void Menu::AddItem(const MenuItem& items) {

@@ -9,6 +9,7 @@
 #include "Sequences/Rental/RentalMenu.hpp"
 #include "Sequences/Rental/Lend.hpp"
 #include "Sequences/Rental/Return.hpp"
+#include "Sequences/Rental/List.hpp"
 #include "Interface/Menu.hpp"
 
 using namespace std;
@@ -21,7 +22,7 @@ void RentalMenu() {
 	menu.SetTitle("レンタルメニュー");
 	menu.AddItem('1', "貸出", &InputLendGoodsID);
 	menu.AddItem('2', "返却", &InputReturnGoodsID);
-	menu.AddItem('3', "貸出商品リスト", nullptr);
+	menu.AddItem('3', "貸出商品リスト", &InputListMemberID);
 	menu.AddItem('0', "終了", bind(&Menu::Quit, &menu));
 	
 	menu.Run();

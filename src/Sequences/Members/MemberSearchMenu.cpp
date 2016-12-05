@@ -19,8 +19,8 @@
 using namespace std;
 
 
-void MemberSearchByID();
-void MemberSearchByName();
+void MemberSearchByID(Menu* menu);
+void MemberSearchByName(Menu* menu);
 
 
 // 会員情報検索メニュー
@@ -28,8 +28,8 @@ void MemberSearchMenu() {
 	Menu menu;
 	
 	menu.SetTitle("会員情報検索");
-	menu.AddItem('1', "会員IDで検索", &MemberSearchByID);
-	menu.AddItem('2', "会員名で検索", &MemberSearchByName);
+	menu.AddItem('1', "会員IDで検索", bind(&MemberSearchByID, &menu));
+	menu.AddItem('2', "会員名で検索", bind(&MemberSearchByName, &menu));
 	menu.AddItem('0', "終了", bind(&Menu::Quit, &menu));
 	
 	menu.Run();
@@ -37,7 +37,7 @@ void MemberSearchMenu() {
 
 
 // 会員ID入力画面 (検索)
-void MemberSearchByID() {
+void MemberSearchByID(Menu* menu) {
 	string input = InputMemberID("会員ID", nullptr);
 	Member* member = gDB.FindMember(input);
 	
@@ -45,12 +45,13 @@ void MemberSearchByID() {
 		cout << "会員が見つかりません。\n";
 	} else {
 		MemberInfo(member);
+		menu->Quit();
 	}
 }
 
 
 // 会員名入力画面 (検索)
-void MemberSearchByName() {
+void MemberSearchByName(Menu* menu) {
 	string input = InputMemberName("会員名", nullptr);
 	
 	vector<Member*> searchResult;
@@ -71,10 +72,13 @@ void MemberSearchByName() {
 		cout << "会員が見つかりません。\n";
 	} else if(searchResult.size() == 1) {
 		MemberInfo(searchResult[0]);
+		menu->Quit();
 	} else {
 		p.SetSelectionHandler([&](int selection){
 			assert(0 <= selection && selection < searchResult.size());
 			MemberInfo(searchResult[selection]);
+			menu->Quit();
+			p.Quit();
 		});
 		p.Run();
 	}

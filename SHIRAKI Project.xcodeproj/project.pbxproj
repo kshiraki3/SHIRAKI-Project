@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F4E88E31DE66C63001BE3C0 /* List.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F4E88E11DE66C63001BE3C0 /* List.cpp */; };
 		9F550DE31DC205D0004D3C8D /* MemberList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F550DE11DC205D0004D3C8D /* MemberList.cpp */; };
 		9F550DE61DC20977004D3C8D /* GoodsSearchMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F550DE41DC20977004D3C8D /* GoodsSearchMenu.cpp */; };
 		9F550DE91DC209B9004D3C8D /* GoodsInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F550DE71DC209B9004D3C8D /* GoodsInfo.cpp */; };
@@ -45,6 +46,7 @@
 		9F7DFA7F1DC1DC3C0076278E /* MemberRegister.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F7DFA7D1DC1DC3C0076278E /* MemberRegister.cpp */; };
 		9F7DFA821DC1E22C0076278E /* MemberSearchMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F7DFA801DC1E22C0076278E /* MemberSearchMenu.cpp */; };
 		9F7DFA851DC1E33F0076278E /* MemberInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F7DFA831DC1E33F0076278E /* MemberInfo.cpp */; };
+		9FAFDEF81DE3F5A2003A419A /* RecommendationSearch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9FAFDEF61DE3F5A2003A419A /* RecommendationSearch.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -60,6 +62,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9F4E88E11DE66C63001BE3C0 /* List.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = List.cpp; sourceTree = "<group>"; };
+		9F4E88E21DE66C63001BE3C0 /* List.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = List.hpp; sourceTree = "<group>"; };
 		9F550DE11DC205D0004D3C8D /* MemberList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemberList.cpp; sourceTree = "<group>"; };
 		9F550DE21DC205D0004D3C8D /* MemberList.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MemberList.hpp; sourceTree = "<group>"; };
 		9F550DE41DC20977004D3C8D /* GoodsSearchMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GoodsSearchMenu.cpp; sourceTree = "<group>"; };
@@ -70,7 +74,7 @@
 		9F550DEB1DC209E1004D3C8D /* GoodsRegister.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GoodsRegister.hpp; sourceTree = "<group>"; };
 		9F550DED1DC20A15004D3C8D /* GoodsList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GoodsList.cpp; sourceTree = "<group>"; };
 		9F550DEE1DC20A15004D3C8D /* GoodsList.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GoodsList.hpp; sourceTree = "<group>"; };
-		9F7DFA061DBF41C50076278E /* SHIRAKI Project */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "SHIRAKI Project"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F7DFA061DBF41C50076278E /* dvd */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = dvd; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F7DFA141DBF42360076278E /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		9F7DFA161DBF423B0076278E /* Exception.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Exception.cpp; sourceTree = "<group>"; };
 		9F7DFA171DBF423B0076278E /* Exception.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Exception.hpp; sourceTree = "<group>"; };
@@ -136,6 +140,8 @@
 		9F7DFA811DC1E22C0076278E /* MemberSearchMenu.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MemberSearchMenu.hpp; sourceTree = "<group>"; };
 		9F7DFA831DC1E33F0076278E /* MemberInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemberInfo.cpp; sourceTree = "<group>"; };
 		9F7DFA841DC1E33F0076278E /* MemberInfo.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MemberInfo.hpp; sourceTree = "<group>"; };
+		9FAFDEF61DE3F5A2003A419A /* RecommendationSearch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RecommendationSearch.cpp; sourceTree = "<group>"; };
+		9FAFDEF71DE3F5A2003A419A /* RecommendationSearch.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RecommendationSearch.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,7 +166,7 @@
 		9F7DFA071DBF41C50076278E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9F7DFA061DBF41C50076278E /* SHIRAKI Project */,
+				9F7DFA061DBF41C50076278E /* dvd */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -237,6 +243,7 @@
 				9F7DFA691DC1CE740076278E /* Members */,
 				9F7DFA6A1DC1CE7E0076278E /* Goods */,
 				9F7DFA491DC05F2E0076278E /* Stores */,
+				9FAFDEF51DE3F586003A419A /* Recommend */,
 			);
 			path = Sequences;
 			sourceTree = "<group>";
@@ -269,6 +276,8 @@
 				9F7DFA711DC1CFC50076278E /* Lend.cpp */,
 				9F7DFA7B1DC1D7D70076278E /* Return.hpp */,
 				9F7DFA7A1DC1D7D70076278E /* Return.cpp */,
+				9F4E88E21DE66C63001BE3C0 /* List.hpp */,
+				9F4E88E11DE66C63001BE3C0 /* List.cpp */,
 			);
 			path = Rental;
 			sourceTree = "<group>";
@@ -311,6 +320,15 @@
 			path = Goods;
 			sourceTree = "<group>";
 		};
+		9FAFDEF51DE3F586003A419A /* Recommend */ = {
+			isa = PBXGroup;
+			children = (
+				9FAFDEF71DE3F5A2003A419A /* RecommendationSearch.hpp */,
+				9FAFDEF61DE3F5A2003A419A /* RecommendationSearch.cpp */,
+			);
+			path = Recommend;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -328,7 +346,7 @@
 			);
 			name = "SHIRAKI Project";
 			productName = "SHIRAKI Project";
-			productReference = 9F7DFA061DBF41C50076278E /* SHIRAKI Project */;
+			productReference = 9F7DFA061DBF41C50076278E /* dvd */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -368,6 +386,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FAFDEF81DE3F5A2003A419A /* RecommendationSearch.cpp in Sources */,
 				9F7DFA731DC1CFC50076278E /* Lend.cpp in Sources */,
 				9F7DFA411DBF42470076278E /* Selector.cpp in Sources */,
 				9F550DEF1DC20A15004D3C8D /* GoodsList.cpp in Sources */,
@@ -396,6 +415,7 @@
 				9F7DFA1E1DBF423B0076278E /* Exception.cpp in Sources */,
 				9F7DFA421DBF42470076278E /* YesNo.cpp in Sources */,
 				9F7DFA2F1DBF42410076278E /* Date.cpp in Sources */,
+				9F4E88E31DE66C63001BE3C0 /* List.cpp in Sources */,
 				9F550DE91DC209B9004D3C8D /* GoodsInfo.cpp in Sources */,
 				9F7DFA2E1DBF42410076278E /* Database.cpp in Sources */,
 				9F7DFA701DC1CEE20076278E /* GoodsManageMenu.cpp in Sources */,
@@ -502,7 +522,8 @@
 		9F7DFA0E1DBF41C50076278E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = dvd;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/src";
 			};
 			name = Debug;
@@ -510,7 +531,8 @@
 		9F7DFA0F1DBF41C50076278E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = dvd;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/src";
 			};
 			name = Release;

@@ -16,6 +16,14 @@
 using namespace std;
 
 
+IDGenerationException::IDGenerationException(const std::string& msg) : SPException(msg) {
+	
+}
+
+IDGenerationException::~IDGenerationException() {
+	
+}
+
 
 namespace {
 	const string kDatabaseFileName = "Database.dat";
@@ -56,6 +64,9 @@ void Database::Save() {
 	}
 	
 	// 店舗情報
+	auto currentStore = static_cast<unsigned char>((mCurrentStore != nullptr) ? mCurrentStore->mID : 255);
+	fw.Write(&currentStore, 1, 1);
+	
 	auto storeNum = static_cast<unsigned>(mStores.size());
 	fw.Write(&storeNum, 4, 1);
 	
@@ -93,11 +104,20 @@ void Database::Load() {
 		}
 		
 		// 店舗情報
+		unsigned char currentStore;
+		fr.Read(&currentStore, 1, 1);
+		
 		unsigned storeNum;
 		fr.Read(&storeNum, 4, 1);
 		
 		for(int i = 0; i < storeNum; ++i) {
 			mStores.insert(Store(&fr));
+		}
+		
+		if(currentStore == 255) {
+			mCurrentStore = nullptr;
+		} else {
+			mCurrentStore = this->FindStore(currentStore);
 		}
 		
 		// 貸出情報
@@ -209,11 +229,19 @@ Store* Database::FindStore(int id) {
 }
 
 int Database::CurrentStore() {
-	return mCurrentStore->mID;
+	if(mCurrentStore == nullptr) {
+		return Store::mNull;
+	} else {
+		return mCurrentStore->mID;
+	}
 }
 
 void Database::SetCurrentStore(int id) {
-	mCurrentStore = this->FindStore(id);
+	if(id == 255) {
+		mCurrentStore = nullptr;
+	} else {
+		mCurrentStore = this->FindStore(id);
+	}
 }
 
 
@@ -266,37 +294,45 @@ void Database::Return(RentalData* rd) {
 // ID自動生成
 
 std::string Database::GenerateMemberID() {
+	if(mCurrentStore == nullptr) {
+		throw IDGenerationException("IDの自動設定には店舗の設定が必要です。");
+	}
+	
 	Date today = Date::Today();
-	string dayText = Sprintf("%04d%02d%02d", today.mYear, today.mMonth, today.mDay);
+	string dayText = Sprintf("%02d%04d%02d%02d", mCurrentStore->mID, today.mYear, today.mMonth, today.mDay);
 	
 	// 連番を取得
 	int num = 0;
 	for(const Member& member : mMembers) {
-		if(member.mID.find(dayText) == 3) {
+		if(member.mID.find(dayText) == 0) {
 			int n;
 			sscanf(member.mID.c_str() + 10, "%02d", &n);
 			
-			if(num > n) { num = n; }
+			if(n > num) { num = n; }
 		}
 	}
 	
-	return Sprintf("%02d%s%02d", mCurrentStore->mID, dayText.c_str(), num + 1);
+	return Sprintf("%s%02d", dayText.c_str(), num + 1);
 }
 
 std::string Database::GenerateGoodsID() {
+	if(mCurrentStore == nullptr) {
+		throw IDGenerationException("IDの自動設定には店舗の設定が必要です。");
+	}
+	
 	Date today = Date::Today();
-	string dayText = Sprintf("%04d%02d%02d", today.mYear, today.mMonth, today.mDay);
+	string dayText = Sprintf("%02d%04d%02d%02d", mCurrentStore->mID, today.mYear, today.mMonth, today.mDay);
 	
 	// 連番を取得
 	int num = 0;
 	for(const DVD& dvd : mDVDs) {
-		if(dvd.mID.find(dayText) == 3) {
+		if(dvd.mID.find(dayText) == 0) {
 			int n;
 			sscanf(dvd.mID.c_str() + 10, "%03d", &n);
 			
-			if(num > n) { num = n; }
+			if(n > num) { num = n; }
 		}
 	}
 	
-	return Sprintf("%02d%s%03d", mCurrentStore->mID, dayText.c_str(), num + 1);
+	return Sprintf("%s%03d", dayText.c_str(), num + 1);
 }

@@ -24,7 +24,7 @@ void GoodsSearchMenu() {
 	Menu menu;
 	
 	menu.SetTitle("商品情報検索メニュー");
-	menu.AddItem('1', "商品IDで検察", &GoodsSearchByID);
+	menu.AddItem('1', "商品IDで検索", &GoodsSearchByID);
 	menu.AddItem('2', "タイトルで検索", &GoodsSearchByTitle);
 	menu.AddItem('0', "商品情報管理メニューに戻る", bind(&Menu::Quit, &menu));
 	
@@ -34,13 +34,16 @@ void GoodsSearchMenu() {
 
 // 商品ID入力画面 (検索)
 void GoodsSearchByID() {
-	string input = InputGoodsID("会員ID", nullptr);
-	DVD* dvd = gDB.FindDVD(input);
+	string input = InputGoodsID("商品ID (0: キャンセル)", nullptr, true);
 	
-	if(dvd == nullptr) {
-		cout << "会員が見つかりません。\n";
-	} else {
-		GoodsInfo(dvd);
+	if(!input.empty()) {
+		DVD* dvd = gDB.FindDVD(input);
+		
+		if(dvd == nullptr) {
+			cout << "商品が見つかりません。\n";
+		} else {
+			GoodsInfo(dvd);
+		}
 	}
 }
 

@@ -13,10 +13,11 @@
 #include <cstdio>
 #include <string>
 
+
 // 復号機能付き読み込みファイルポインタ
 class FileReader {
 public:
-	FileReader(const std::string& fileName);
+	explicit FileReader(const std::string& fileName);
 	~FileReader();
 	
 	void Read(void* buf, size_t size, size_t n);

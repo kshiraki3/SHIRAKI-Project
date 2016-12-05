@@ -24,10 +24,13 @@ public:
 	~Paginator();
 	
 	void AddItem(const std::string& item);
+	unsigned ItemCount() const;
 	void SetHeaderText(const std::string& text);
 	void SetItemsPerPage(int n);
 	void SetSelectionHandler(const std::function<void(int)>& handler);
 	void SetReturnMessage(const std::string& msg);
+	
+	void Quit();
 	
 	void Run();
 	
@@ -35,6 +38,7 @@ private:
 	std::vector<std::string> mItems;
 	std::function<void(int)> mHandler;
 	
+	bool mQuit;
 	int mPage;
 	int mItemsPerPage;
 	std::string mHeaderText;
