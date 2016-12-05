@@ -32,7 +32,7 @@ void GoodsInfo(DVD* dvd) {
 	});
 	menu.AddItem('1', "変更", bind(&GoodsModify, dvd));
 	menu.AddItem('2', "削除", bind(&GoodsDeleteComfirmation, dvd, &menu));
-	menu.AddItem('0', "商品情報確認メニューに戻る", bind(&Menu::Quit, &menu));
+	menu.AddItem('0', "商品情報管理メニューに戻る", bind(&Menu::Quit, &menu));
 	
 	menu.Run();
 }
@@ -59,11 +59,26 @@ void GoodsModify(DVD* dvd) {
 	Menu menu;
 	
 	menu.SetCustomText([](){ cout << "どの項目を変更しますか?\n"; });
-	menu.AddItem('1', "タイトル", [=](){ InputGoodsTitle("", dvd); });
-	menu.AddItem('2', "ジャンル", [=](){ InputGoodsGenre("", dvd); });
-	menu.AddItem('3', "発売日", [=](){ InputGoodsReleaseDate("", dvd); });
-	menu.AddItem('4', "貸出回数", [=](){ InputGoodsLendTime("", dvd); });
-	menu.AddItem('5', "保管場所", [=](){ InputGoodsPlace("", dvd); });
+	menu.AddItem('1', "タイトル", [=](){
+		InputGoodsTitle("", dvd);
+		ShowGoodsInfo(dvd);
+	});
+	menu.AddItem('2', "ジャンル", [=](){
+		InputGoodsGenre("", dvd);
+		ShowGoodsInfo(dvd);
+	});
+	menu.AddItem('3', "発売日", [=](){
+		InputGoodsReleaseDate("", dvd);
+		ShowGoodsInfo(dvd);
+	});
+	menu.AddItem('4', "貸出回数", [=](){
+		InputGoodsLendTime("", dvd);
+		ShowGoodsInfo(dvd);
+	});
+	menu.AddItem('5', "保管場所", [=](){
+		InputGoodsPlace("", dvd);
+		ShowGoodsInfo(dvd);
+	});
 	menu.AddItem('0', "商品情報確認に戻る", bind(&Menu::Quit, &menu));
 	
 	menu.Run();

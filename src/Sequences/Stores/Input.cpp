@@ -14,16 +14,16 @@ using namespace std;
 
 
 int InputStoreID(const string& msg, Store* store) {
-	cout << msg << "> ";
-	
 	int input;
 	
 	while(true) {
+		cout << msg << "> ";
 		cin >> input;
 		
 		if(cin.fail() || input < 0 || 99 < input) {
-			cout << "店舗IDは0から99までの整数で入力してください。";
+			cout << "店舗IDは0から99までの整数で入力してください。\n";
 			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		} else {
 			break;
 		}

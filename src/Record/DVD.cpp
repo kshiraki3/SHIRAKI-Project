@@ -46,7 +46,7 @@ DVD::DVD(FileReader* fr) {
 	mLendableFlag = lendableFlag;
 	
 	// 保管場所
-	char place;
+	unsigned char place;
 	fr->Read(&place, 1, 1);
 	mPlace = place;
 }

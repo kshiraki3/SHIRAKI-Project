@@ -71,7 +71,7 @@ void MemberSearchByName(Menu* menu) {
 	if(searchResult.empty()) {
 		cout << "会員が見つかりません。\n";
 	} else if(searchResult.size() == 1) {
-		MemberInfo(searchResult[0]);
+		MemberInfo(searchResult.front());
 		menu->Quit();
 	} else {
 		p.SetSelectionHandler([&](int selection){

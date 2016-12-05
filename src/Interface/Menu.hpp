@@ -46,6 +46,7 @@ public:
 	
 	void AddItem(const MenuItem& items);
 	void AddItem(char command, const std::string& text, const MenuAction& action);
+	void ModifyItem(int i, char command, const std::string& text, const MenuAction& action);
 	
 private:
 	bool mQuit;

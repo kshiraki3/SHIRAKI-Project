@@ -11,6 +11,7 @@
 #include "FileIO/Exception.hpp"
 #include "FileIO/FileReader.hpp"
 #include "FileIO/FileWriter.hpp"
+#include <cassert>
 #include <cstdio>
 
 using namespace std;
@@ -241,6 +242,7 @@ void Database::SetCurrentStore(int id) {
 		mCurrentStore = nullptr;
 	} else {
 		mCurrentStore = this->FindStore(id);
+		assert(mCurrentStore != nullptr);
 	}
 }
 

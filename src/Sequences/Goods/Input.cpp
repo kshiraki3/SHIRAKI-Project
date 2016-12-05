@@ -99,7 +99,7 @@ unsigned InputGoodsLendTime(const string& msg, DVD* dvd) {
 	}
 	
 	if(dvd != nullptr) {
-		dvd->mTitle = input;
+		dvd->mLendTime = input;
 	}
 	
 	return input;
@@ -135,7 +135,12 @@ int InputGoodsPlace(const string& msg, DVD* dvd) {
 		cout << msg << " (-1: 倉庫)> ";
 		cin >> input;
 		
-		if(cin.fail() || (input < 0 && 99 < input)) {
+		if(input == -1) {
+			if(dvd !=  nullptr) {
+				dvd->mPlace = Store::mNull;
+			}
+			return Store::mNull;
+		} else if(cin.fail() || (input < 0 && 99 < input)) {
 			cout << "保管場所は-1または有効な店舗IDで入力してください。\n";
 			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');

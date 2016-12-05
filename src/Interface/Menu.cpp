@@ -7,13 +7,14 @@
 //
 
 #include "Interface/Menu.hpp"
+#include <cassert>
 #include <iostream>
 #include <limits>
 
 using namespace std;
 
 
-Menu::Menu() {
+Menu::Menu() : mQuit(false), mSingle(false) {
 	
 }
 
@@ -104,4 +105,11 @@ void Menu::AddItem(const MenuItem& items) {
 
 void Menu::AddItem(char command, const string& text, const MenuAction& action) {
 	mItems.push_back({ command, text, action });
+}
+
+void Menu::ModifyItem(int i, char command, const std::string& text, const MenuAction& action) {
+	assert(0 <= i && i < mItems.size());
+	mItems[i].mCommand = command;
+	mItems[i].mText = text;
+	mItems[i].mAction = action;
 }

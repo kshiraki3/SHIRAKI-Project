@@ -24,9 +24,23 @@ void GoodsRegister() {
 	
 	cout << "***** 新規商品情報入力 *****\n";
 	
-	InputGoodsID("商品ID (0: 自動生成)", &newDVD, true);
-	if(newDVD.mID.empty()) {
-		newDVD.mID = gDB.GenerateGoodsID();
+	while(true) {
+		InputGoodsID("商品ID (0: 自動生成)", &newDVD, true);
+		if(newDVD.mID.empty()) {
+			try {
+				newDVD.mID = gDB.GenerateGoodsID();
+				break;
+			} catch(const IDGenerationException& exception) {
+				cout << exception.what() << "\n";
+			}
+		} else {
+			// 重複チェック
+			if(gDB.FindDVD(newDVD.mID) != nullptr) {
+				cout << "商品IDが重複しています。別のIDを入力してください。\n";
+			} else {
+				break;
+			}
+		}
 	}
 	
 	InputGoodsTitle("タイトル", &newDVD);
@@ -57,7 +71,26 @@ void NewGoodsInfo(DVD* newDVD) {
 		GoodsRegisterNotify(newDVD);
 		menu.Quit();
 	});
-	menu.AddItem('2', "商品IDを変更", [=](){ InputGoodsID("", newDVD); });
+	menu.AddItem('2', "商品IDを変更", [=](){
+		while(true) {
+			InputGoodsID("商品ID (0: 自動生成)", newDVD, true);
+			if(newDVD->mID.empty()) {
+				try {
+					newDVD->mID = gDB.GenerateGoodsID();
+					break;
+				} catch(const IDGenerationException& exception) {
+					cout << exception.what() << "\n";
+				}
+			} else {
+				// 重複チェック
+				if(gDB.FindDVD(newDVD->mID) != nullptr) {
+					cout << "商品IDが重複しています。別のIDを入力してください。\n";
+				} else {
+					break;
+				}
+			}
+		}
+	});
 	menu.AddItem('3', "タイトルを変更", [=](){ InputGoodsTitle("", newDVD); });
 	menu.AddItem('4', "ジャンルを変更", [=](){ InputGoodsGenre("", newDVD); });
 	menu.AddItem('5', "発売日を変更", [=](){ InputGoodsReleaseDate("", newDVD); });

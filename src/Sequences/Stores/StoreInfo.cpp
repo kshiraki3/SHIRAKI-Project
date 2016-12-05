@@ -17,8 +17,8 @@
 using namespace std;
 
 
-void StoreSetNotify(Store* store);
-void StoreResetNotify(Store* store);
+void StoreSetNotify(Store* store, Menu* menu);
+void StoreResetNotify(Store* store, Menu* menu);
 void StoreNameModify(Store* store);
 void StoreDeleteConfirmation(Store* store, Menu* menu);
 void StoreDeleteNotify(Store* store);
@@ -32,11 +32,14 @@ void StoreInfo(Store* store) {
 	menu.SetCustomText([&](){
 		cout << "店舗ID : " << store->mID << "\n";
 		cout << "店舗名 : " << store->mName << "\n";
+		if(gDB.CurrentStore() == store->mID) {
+			cout << "[現在の店舗として設定されています]\n";
+		}
 	});
 	if(gDB.CurrentStore() == store->mID) {
-		menu.AddItem('0', "店舗設定を解除", bind(&StoreResetNotify, store));
+		menu.AddItem('1', "店舗設定を解除", bind(&StoreResetNotify, store, &menu));
 	} else {
-		menu.AddItem('1', "現在の店舗として設定", bind(&StoreSetNotify, store));
+		menu.AddItem('1', "現在の店舗として設定", bind(&StoreSetNotify, store, &menu));
 	}
 	menu.AddItem('2', "店舗名変更", bind(&StoreNameModify, store));
 	menu.AddItem('3', "削除", bind(&StoreDeleteConfirmation, store, &menu));
@@ -47,21 +50,23 @@ void StoreInfo(Store* store) {
 
 
 // 店舗設定解除通知画面
-void StoreResetNotify(Store* store) {
-	gDB.SetCurrentStore(-1);
+void StoreResetNotify(Store* store, Menu* menu) {
+	gDB.SetCurrentStore(Store::mNull);
 	cout << "店舗設定が解除されました。\n";
+	menu->ModifyItem(0, '1', "現在の店舗として設定", bind(&StoreSetNotify, store, menu));
 }
 
 // 店舗設定通知画面
-void StoreSetNotify(Store* store) {
+void StoreSetNotify(Store* store, Menu* menu) {
 	gDB.SetCurrentStore(store->mID);
 	cout << store->mName << "が現在の店舗として設定されました。";
+	menu->ModifyItem(0, '1', "店舗設定を解除", bind(&StoreResetNotify, store, menu));
 }
 
 
 // 店舗名変更画面
 void StoreNameModify(Store* store) {
-	InputStoreID("", store);
+	InputStoreName("", store);
 }
 
 
@@ -78,5 +83,8 @@ void StoreDeleteConfirmation(Store* store, Menu* menu) {
 
 // 店舗情報削除通知画面
 void StoreDeleteNotify(Store* store) {
+	if(gDB.CurrentStore() == store->mID) {
+		gDB.SetCurrentStore(Store::mNull);
+	}
 	gDB.RemoveStore(store->mID);
 }

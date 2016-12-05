@@ -22,7 +22,15 @@ void StoreRegisterNotify(Store* newStore);
 void StoreRegister() {
 	Store newStore;
 	
-	InputStoreID("店舗ID", &newStore);
+	while(true) {
+		InputStoreID("店舗ID", &newStore);
+		
+		if(gDB.FindStore(newStore.mID) != nullptr) {
+			cout << "店舗IDが重複しています。違うIDを入力してください。\n";
+		} else {
+			break;
+		}
+	}
 	InputStoreName("店舗名", &newStore);
 	
 	NewStoreInfo(&newStore);
@@ -42,7 +50,17 @@ void NewStoreInfo(Store* newStore) {
 		StoreRegisterNotify(newStore);
 		menu.Quit();
 	});
-	menu.AddItem('2', "店舗IDを変更", [=](){ InputStoreID("", newStore); });
+	menu.AddItem('2', "店舗IDを変更", [=](){
+		while(true) {
+			InputStoreID("店舗ID", newStore);
+			
+			if(gDB.FindStore(newStore->mID) != nullptr) {
+				cout << "店舗IDが重複しています。違うIDを入力してください。\n";
+			} else {
+				break;
+			}
+		}
+	});
 	menu.AddItem('3', "店舗名を変更", [=](){ InputStoreName("", newStore); });
 	menu.AddItem('0', "キャンセル", bind(&Menu::Quit, &menu));
 	
